@@ -1,0 +1,13 @@
+= simple_form_for(@product) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :cod
+    = f.input :name, label:"nombre", hint:"indicacion: max 16 caracteres" #etiqueta a al atributo de la tabla
+    = f.input :quantity, as: :float
+    = f.input :image
+    = f.input :description, as: :text
+    = f.input :price
+
+  .form-actions
+    = f.button :submit

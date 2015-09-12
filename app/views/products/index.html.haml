@@ -1,0 +1,31 @@
+%h1 Listing products
+
+%table.table.table-bordered
+  %thead
+    %tr.warning
+      %th Cod
+      %th Name
+      %th Quantity
+      %th Image
+      %th Description
+      %th Price
+      %th
+      %th
+      %th
+
+  %tbody
+    - @products.each do |product|
+      %tr{ class: "#{'danger' if product.quantity<=3}" }
+        %td= product.cod
+        %td= product.name
+        %td= product.quantity
+        %td= product.image
+        %td= product.description
+        %td= product.price
+        %td= link_to 'Show', product
+        %td= link_to 'Edit', edit_product_path(product)
+        %td= link_to 'Destroy', product, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Product', new_product_path
